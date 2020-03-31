@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Navbar } from './components/NavBar';
 
 import { Home } from './pages/Home';
-import { Posts } from './pages/Posts';
+import { Posts } from './pages/Posts/Posts';
 import { Users } from './pages/Users';
-import { News } from './pages/News';
+import { News } from './pages/News/News';
 
 const App = () => {
     return (
