@@ -1,0 +1,9 @@
+import React from 'react';
+
+export const Alert=({title, type})=>{
+    return(
+        <div className={`alert alert-${type}`} role="alert">
+ {title}
+</div>
+    )
+}
