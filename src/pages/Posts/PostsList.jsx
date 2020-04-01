@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const PostsList = ({ title, body, id }) => {
+export const PostsList = ({ title, body}) => {
     return (
-        <li key={id} className="list-group-item">
+        <li className="list-group-item">
             <div>
                 <div className="card-header">
                     <strong> {title}</strong>

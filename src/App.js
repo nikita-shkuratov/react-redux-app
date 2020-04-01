@@ -4,7 +4,7 @@ import { Navbar } from './components/NavBar';
 
 import { Home } from './pages/Home';
 import { Posts } from './pages/Posts/Posts';
-import { Users } from './pages/Users';
+import { Users } from './pages/Users/Users';
 import { News } from './pages/News/News';
 
 const App = () => {

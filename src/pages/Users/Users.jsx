@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPost } from '../../redux/actions';
-import { PostsList } from './PostsList';
+import { fetchUsers } from '../../redux/actions';
+import { User } from './User';
 import { Loader } from '../../components/Loader/Loader';
 import { Alert } from '../../components/Alert';
 
-export const Posts = () => {
+export const Users = () => {
     const dispatch = useDispatch();
-    const posts = useSelector(state => state.post.fetchPosts);
+    const users = useSelector(state => state.user.fetchUsers);
     const loading = useSelector(state => state.appLoader.loading);
     const alert = useSelector(state => state.appLoader.alert);
 
@@ -23,14 +23,17 @@ export const Posts = () => {
 
     return (
         <div>
-            <h1>Posts Page</h1>
+            <h1>Users Page</h1>
             {alert !== null && <Alert title={alert} type='success' />}
-            <button onClick={() => dispatch(fetchPost())} type="button" className="btn btn-primary btn-lg btn-block">LOADING POSTS</button>
+            <button onClick={() => dispatch(fetchUsers())} type="button" className="btn btn-primary btn-lg btn-block">LOADING USERS</button>
             <ul className="list-group">
-                {posts.map(post => <PostsList key={post.id} title={post.title} body={post.body} />)}
+                {users.map(user => <User
+                    key={user.id}
+                    name={user.name}
+                    email={user.email}
+                    phone={user.phone}
+                    address={user.address} />)}
             </ul>
         </div>
-
     );
 };
-
