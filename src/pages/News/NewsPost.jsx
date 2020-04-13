@@ -1,5 +1,5 @@
-import React from 'react';
-import './News.scss';
+import React from 'react'
+import './News.scss'
 
 const NewsPost = ({ author, created_at, num_comments, title, points, url }) => (
   <li className="news">

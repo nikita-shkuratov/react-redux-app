@@ -1,0 +1,71 @@
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn_navigation {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+.btn_navigation:hover {
+    cursor: pointer;
+}
+.contaner_navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    height: 80px;
+}
+.logo_navbar {
+    padding-left: 20px;
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+.list_navbar {
+    display: flex;
+    list-style: none;
+}
+.navbar_item {
+    font-size: 1.5rem;
+}
+.nav-link {
+    color: #ffffff;
+}
+.btn_autorization_navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    padding-right: 20px;
+}
+.btn_login_navbar {
+    padding: 0;
+    border: 1px solid #ffffff;
+    font-size: 1.4rem;
+    padding: 5px;
+    border-radius: 5px;
+    width: 130px;
+    color: #ffffff;
+    background-color: transparent;
+}
+.btn_logout_navbar {
+    padding: 0;
+    border: 1px solid #ffffff;
+    font-size: 1.4rem;
+    padding: 5px;
+    border-radius: 5px;
+    width: 130px;
+    color: #ffffff;
+    background-color: transparent;
+}
+.btn_login_navbar:hover {
+    background-color: rgba($color: #01fd0e, $alpha: 0.6);
+    cursor: pointer;
+}
+.btn_logout_navbar:hover {
+    background-color: rgba($color: #5c5a5a, $alpha: 0.7);
+    cursor: pointer;
+}

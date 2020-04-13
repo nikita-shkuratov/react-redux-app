@@ -1,0 +1,33 @@
+#btn_loading_posts{
+margin-bottom: 30px;
+}
+
+.posts_list_contaner {
+    overflow-y: scroll;
+    height: 500px;
+   
+}
+.post_list_item {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin:15px;
+    list-style: none;
+    border-radius:5px ;
+    background-color: rgba($color: #ffffff, $alpha: .7);
+ 
+}
+.post_card_header {
+    background-color: rgba($color: #868585, $alpha: .4);
+    border-bottom: 1px solid #ffffff;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.post_card_body {
+    background-color: rgba($color: #ffffff, $alpha: .5);
+    border-bottom: 1px solid #ffffff;
+    font-size: 16px;
+    margin:5px ;
+    padding: 5px;
+    border-radius: 5px;
+}

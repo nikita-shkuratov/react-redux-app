@@ -1,0 +1,32 @@
+#btn_loading_users {
+    margin-bottom: 10px;
+}
+#btn_hide_users{
+    margin-bottom: 20px;
+}
+.users_list_contaner {
+    display: flex;
+    flex-flow: row wrap;
+    height: 600px;
+    overflow-y: scroll;
+}
+.card_contaner_user {
+    border: 1px solid rgb(253, 253, 253);
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    width: 500px;
+    height: 200px;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+}
+.list_user_item {
+    list-style: none;
+}
+.card_header_user {
+    border-bottom: 2px solid rgb(253, 253, 253);
+    padding: 5px;
+}
+.card_footer_user {
+    padding: 5px;
+    border-top: 1px solid rgb(219, 216, 216);
+}

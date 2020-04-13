@@ -1,18 +1,35 @@
-import React from 'react';
+import React from 'react'
 
-export const Input = ({ onChange, onKeyPress, value, onClick }) => (
-    <div className="input-group mb-3">
-        <input
-            type="text"
-            className="form-control"
-            placeholder="What news are we looking for?"
-            aria-label="What news are we looking for?"
-            aria-describedby="button-addon2"
-            onChange={onChange}
-            onKeyPress={onKeyPress}
-            value={value} />
-        <div className="input-group-append">
-            <button onClick={onClick} className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-        </div>
+function isInvalid({valid, touched, shouldValidate}) {
+  return !valid && shouldValidate && touched
+}
+
+const Input = props => {
+  const inputType = props.type || 'text'
+  const cls = [classes.Input]
+  const htmlFor = `${inputType}-${Math.random()}`
+
+  if (isInvalid(props)) {
+    cls.push(classes.invalid)
+  }
+
+  return (
+    <div className={cls.join(' ')}>
+      <label htmlFor={htmlFor}>{props.label}</label>
+      <input
+        type={inputType}
+        id={htmlFor}
+        value={props.value}
+        onChange={props.onChange}
+      />
+
+      {
+        isInvalid(props)
+          ? <span>{props.errorMessage || 'Введите верное значение'}</span>
+          : null
+      }
     </div>
-)
+  )
+}
+
+export default Input

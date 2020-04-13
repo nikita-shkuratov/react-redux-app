@@ -1,36 +1,42 @@
-import React, { Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPost } from '../../redux/actions';
-import { PostsList } from './PostsList';
-import { Loader } from '../../components/Loader/Loader';
-import { Alert } from '../../components/Alert';
+import React, { Fragment } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchPost } from '../../redux/actions'
+import { CardPost } from './CardPost'
+import { Loader } from '../../components/Loader/Loader'
+import { Alert } from '../../components/Alert'
+import './Posts.scss'
 
 export const Posts = () => {
     const dispatch = useDispatch();
-    const posts = useSelector(state => state.post.fetchPosts);
-    const loading = useSelector(state => state.appLoader.loading);
-    const alert = useSelector(state => state.appLoader.alert);
+    const posts = useSelector(state => state.post.fetchPosts)
+    const loading = useSelector(state => state.appLoader.loading)
+    const { text } = useSelector(state => state.appLoader.alert)
 
     if (loading) {
         return (
             <Fragment>
-                <Loader />
-                <br />
-                {alert !== null && <Alert title={alert} type='danger' />}
+                <Loader /><br />
+                {text !== null && <Alert title={alert} type='danger' />}
             </Fragment>
-        );
-    };
+        )
+    }
 
     return (
         <div>
-            <h1>Posts Page</h1>
-            {alert !== null && <Alert title={alert} type='success' />}
-            <button onClick={() => dispatch(fetchPost())} type="button" className="btn btn-primary btn-lg btn-block">LOADING POSTS</button>
-            <ul className="list-group">
-                {posts.map(post => <PostsList key={post.id} title={post.title} body={post.body} />)}
-            </ul>
+            {text !== null && <Alert title={text} type='success' />}
+            <button
+                id='btn_loading_posts'
+                onClick={() => dispatch(fetchPost())}
+                type="button"
+                className="btn btn-primary btn-lg btn-block">LOADING POSTS
+             </button>
+            {posts.length > 0 &&
+                <div>
+                    <ul className="posts_list_contaner">
+                        {posts.map(post => <CardPost key={post.id} title={post.title} body={post.body} />)}
+                    </ul>
+                </div>}
         </div>
-
-    );
-};
+    )
+}
 

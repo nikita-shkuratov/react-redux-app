@@ -2,7 +2,11 @@ import { SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT } from "./types";
 
 const initialState = {
     loading: false,
-    alert: null
+    alert: {
+        text: null,
+        typeAlert: 'success'
+    },
+    registration: false
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -14,8 +18,7 @@ export const appReducer = (state = initialState, action) => {
         case SHOW_ALERT:
             return ({ ...state, alert: action.payload });
         case HIDE_ALERT:
-            return ({ ...state, alert: null });
+            return ({ ...state, alert: {text:null} });
         default: return state;
-
     };
 };
