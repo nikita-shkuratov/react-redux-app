@@ -1,4 +1,4 @@
-import { FETCH_USERS } from "./types";
+import { FETCH_USERS } from "./types"
 
 const initialState = {
     fetchUsers: []
@@ -7,8 +7,8 @@ const initialState = {
 export const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_USERS:
-            return { ...state, fetchUsers: action.payload };
+            return { ...state, fetchUsers: action.payload }
 
-        default: return state;
+        default: return state
     }
 }

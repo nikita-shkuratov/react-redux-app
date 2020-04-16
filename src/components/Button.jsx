@@ -1,3 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-export const Button = ({type,title, onClick}) => <button onClick={onClick} type="button" className={`btn btn-${type} btn-sm`}>{title}</button>
+export const Button = (props) => (
+    <button id={props.id} onClick={props.onClick} type="button"
+className={`btn btn-${props.type} btn-lg btn-block`}>{props.title}</button>
+) 

@@ -4,6 +4,8 @@ import { hideReg, regNewUser, showAlert, showLoader, hideLoader } from '../../..
 import { Alert } from '../../../components/Alert'
 import { Loader } from '../../../components/Loader/Loader'
 import './Registration.scss'
+import { Input } from '../../../components/Input'
+import { Button } from '../../../components/Button'
 
 export const Registration = () => {
     const dispatch = useDispatch()
@@ -15,10 +17,17 @@ export const Registration = () => {
         firstName: '',
         lastName: '',
         email: '',
-        password: ''
+        password: '',
+        dataInput: [
+            { id: 'firstName', type: "text", title: 'First Name', placeholder: 'John' },
+            { id: 'lastName', type: "text", title: 'Last Name', placeholder: 'Smith' },
+            { id: 'email', type: "email", title: 'Email', placeholder: 'smith@mail.ru' },
+            { id: 'password', type: "password", title: 'Password', placeholder: '****' }
+        ]
     })
 
     const handleChange = (e) => {
+
         if (e.target.id === 'firstName') {
             let validationFirstName = e.target.value
 
@@ -41,7 +50,7 @@ export const Registration = () => {
             } if (validationFirstName !== '') {
                 e.target.className = 'form-control valid'
                 setDataPerson({
-                    firstName: validationFirstName
+                    ...dataPerson, firstName: validationFirstName
                 })
             }
 
@@ -56,7 +65,6 @@ export const Registration = () => {
                 e.target.className = 'form-control invalid'
                 dispatch(showAlert('Last Name too short!', 'danger'))
                 return validationLastName = ''
-
             } if (validationLastName.search(/\d/) !== -1) {
                 e.target.className = 'form-control invalid'
                 dispatch(showAlert('Last Name cannot contain numbers!', 'danger'))
@@ -68,7 +76,7 @@ export const Registration = () => {
             } if (validationLastName !== '') {
                 e.target.className = 'form-control valid'
                 setDataPerson({
-                    lastName: validationLastName
+                    ...dataPerson, lastName: validationLastName
                 })
             }
 
@@ -90,7 +98,7 @@ export const Registration = () => {
             } if (validationEmail !== '') {
                 e.target.className = 'form-control valid'
                 setDataPerson({
-                    email: e.target.value
+                    ...dataPerson, email: validationEmail
                 })
             }
 
@@ -108,13 +116,13 @@ export const Registration = () => {
             } if (validationPassword !== '') {
                 e.target.className = 'form-control valid'
                 setDataPerson({
-                    password: validationPassword
+                    ...dataPerson, password: validationPassword
                 })
             }
         }
     }
 
-    const handleRegUser = ({ firstName, lastName, email,password }) => {
+    const handleRegUser = ({ firstName, lastName, email, password }) => {
         if (firstName && lastName && email && password !== '') {
             dispatch(showLoader())
             dispatch(regNewUser(dataPerson))
@@ -126,7 +134,6 @@ export const Registration = () => {
         }
     }
 
-
     if (registration) {
         return (
             <div className="registration_bg" >
@@ -134,67 +141,17 @@ export const Registration = () => {
                     <div className="registration">
                         {text !== null && <Alert title={text} type={typeAlert} />}
                         {loading && <Loader />}
-
-                        <div className="input-group m-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="inputGroup-sizing-default">First Name</span>
-                            </div>
-                            <input
-                                id='firstName'
-                                type="text"
-                                className="form-control"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                onChange={handleChange}
-                                placeholder='John'
-                            />
-                        </div>
-                        <div className="input-group m-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="inputGroup-sizing-default">Last Name</span>
-                            </div>
-                            <input
-                                id='lastName'
-                                type="text"
-                                className="form-control"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                onChange={handleChange}
-                                placeholder='Smith'
-                            />
-                        </div>
-                        <div className="input-group m-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="inputGroup-sizing-default">Email</span>
-                            </div>
-                            <input
-                                id='email'
-                                type="email"
-                                className="form-control"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                onChange={handleChange}
-                                placeholder='smith@mail.ru'
-                            />
-                        </div>
-                        <div className="input-group m-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="inputGroup-sizing-default">Password</span>
-                            </div>
-                            <input
-                                id='password'
-                                type="password"
-                                className="form-control"
-                                aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default"
-                                onChange={handleChange}
-                            />
-                        </div>
+                        {dataPerson.dataInput.map(input => <Input
+                            key={`${input.id}`}
+                            id={input.id}
+                            type={input.type}
+                            title={input.title}
+                            placeholder={input.placeholder}
+                            onChange={event => handleChange(event)} />)}
                         <div>
-                            <button onClick={() => handleRegUser(dataPerson)} id='btn_accept' type="button" className="btn btn-primary btn-lg btn-block">accept</button>
-                            <button onClick={() => dispatch(hideReg())} id='btn_close' type="button" className="btn btn-danger btn-lg btn-block">close</button>
+                            <Button id='btn_accept' onClick={() => handleRegUser(dataPerson)} type={'primary'} title='accept' />
+                            <Button id='btn_close' onClick={() => dispatch(hideReg())} type={'danger'} title='close' />
                         </div>
-
                     </div>
                 </div>
             </div>

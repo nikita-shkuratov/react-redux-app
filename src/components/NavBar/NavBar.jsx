@@ -10,7 +10,7 @@ export const Navbar = () => {
 
     return (
         <nav className="contaner_navbar">
-            <div className="logo_navbar">React-Redux-App</div>
+            <div className="logo_navbar"><a className='logo_link' href='https://github.com/nikita-shkuratov/react-redux-app' target='_blank' rel="noopener noreferrer" title='link to git'>React-Redux-App</a></div>
             <ul className="list_navbar">
                 <li className="navbar_item">
                     <NavLink
@@ -41,7 +41,7 @@ export const Navbar = () => {
                 </li>
             </ul>
             <div className="btn_autorization_navbar">
-                <button type='button' className="btn_login_navbar" onClick={() => dispatch(showLog())}>LOGIN</button>
+                <button disabled={authorization} type='button' className="btn_login_navbar" onClick={() => dispatch(showLog())}>LOGIN</button>
                 <NavLink to={"/"}>
                     <button type='button' className="btn_logout_navbar" onClick={() => dispatch(logout())}>LOGOUT</button>
                 </NavLink>

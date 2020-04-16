@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from "./types";
+import { FETCH_POSTS } from "./types"
 
 const initialState = {
     fetchPosts: []
@@ -7,8 +7,8 @@ const initialState = {
 export const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_POSTS:
-            return { ...state, fetchPosts: action.payload };
-
-        default: return state;
+            return { ...state, fetchPosts: action.payload }
+            
+        default: return state
     }
 }

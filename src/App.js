@@ -19,13 +19,12 @@ const App = () => {
                 <div className='container pt-4'>
                     <Switch>
                         <Route exact path='/' component={Home} />
-                         {authorization
+                        {authorization
                             ? <Fragment><Route exact path='/posts' component={Posts} />
                                 <Route exact path='/users' component={Users} />
                                 <Route exact path='/news' component={News} />
                             </Fragment>
-                            : <Alert title='Pages are available to authorized users.' type='danger' />} 
-
+                            : <Alert title='Pages are available to authorized users.' type='danger' />}
                     </Switch>
                 </div>
             </div>

@@ -14,7 +14,7 @@ export const News = () => {
     const { hits } = news
 
     useEffect(() => {
-        dispatch(fetchNews());
+        dispatch(fetchNews())
         // eslint-disable-next-line
     }, [])
 

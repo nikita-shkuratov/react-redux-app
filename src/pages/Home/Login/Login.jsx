@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { hideLog, fetchRegUsers, login, showAlert } from '../../../redux/actions'
 import { Alert } from '../../../components/Alert'
+import { Button } from '../../../components/Button'
 import './Login.scss'
 
 export const Login = () => {
@@ -64,8 +65,8 @@ export const Login = () => {
                         </div>
                         <input ref={inputPasswordRef} onChange={changeHandler} type="password" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
                     </div>
-                    <button id='btn_accept' onClick={loginHandler} type="button" className="btn btn-primary btn-lg btn-block">accept</button>
-                    <button id='btn_close' onClick={() => dispatch(hideLog())} type="button" className="btn btn-danger btn-lg btn-block">close</button>
+                    <Button id='btn_accept' onClick={loginHandler} type={'primary'} title='accept' />
+                    <Button id='btn_close' onClick={() => dispatch(hideLog())} type={'danger'} title='close' />
                 </div>
             </div>
         </div>

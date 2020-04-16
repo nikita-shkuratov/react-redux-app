@@ -2,7 +2,6 @@ dl, ol, ul {
     margin-top: 0;
     margin-bottom: 0;
 }
-
 .btn_navigation {
     padding: 0;
     border: none;
@@ -68,4 +67,7 @@ dl, ol, ul {
 .btn_logout_navbar:hover {
     background-color: rgba($color: #5c5a5a, $alpha: 0.7);
     cursor: pointer;
+}
+.logo_link:hover{
+    text-decoration: none;
 }

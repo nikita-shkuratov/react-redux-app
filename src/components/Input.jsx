@@ -1,35 +1,19 @@
 import React from 'react'
 
-function isInvalid({valid, touched, shouldValidate}) {
-  return !valid && shouldValidate && touched
-}
-
-const Input = props => {
-  const inputType = props.type || 'text'
-  const cls = [classes.Input]
-  const htmlFor = `${inputType}-${Math.random()}`
-
-  if (isInvalid(props)) {
-    cls.push(classes.invalid)
-  }
-
-  return (
-    <div className={cls.join(' ')}>
-      <label htmlFor={htmlFor}>{props.label}</label>
-      <input
-        type={inputType}
-        id={htmlFor}
-        value={props.value}
-        onChange={props.onChange}
-      />
-
-      {
-        isInvalid(props)
-          ? <span>{props.errorMessage || 'Введите верное значение'}</span>
-          : null
-      }
+export const Input = (props) => (
+    <div className="input-group m-3">
+        <div className="input-group-prepend">
+            <span className="input-group-text" id="inputGroup-sizing-default">{props.title}</span>
+        </div>
+        <input
+            id={props.id}
+            type={props.type}
+            className="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            onChange={props.onChange}
+            placeholder={props.placeholder}
+            ref={props.ref}
+        />
     </div>
-  )
-}
-
-export default Input
+) 

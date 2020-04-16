@@ -1,4 +1,4 @@
-import { FETCH_NEWS } from "./types";
+import { FETCH_NEWS } from "./types"
 
 const initialState = {
     fetchNews: []
@@ -7,8 +7,8 @@ const initialState = {
 export const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_NEWS:
-            return { ...state, fetchNews: action.payload };
-        default: return state;
+            return { ...state, fetchNews: action.payload }
+        default: return state
     }
 }
 

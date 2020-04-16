@@ -4,6 +4,7 @@ import { fetchPost } from '../../redux/actions'
 import { CardPost } from './CardPost'
 import { Loader } from '../../components/Loader/Loader'
 import { Alert } from '../../components/Alert'
+import { Button } from '../../components/Button'
 import './Posts.scss'
 
 export const Posts = () => {
@@ -24,12 +25,7 @@ export const Posts = () => {
     return (
         <div>
             {text !== null && <Alert title={text} type='success' />}
-            <button
-                id='btn_loading_posts'
-                onClick={() => dispatch(fetchPost())}
-                type="button"
-                className="btn btn-primary btn-lg btn-block">LOADING POSTS
-             </button>
+            <Button id='btn_loading_posts' onClick={() => dispatch(fetchPost())} type={'primary'} title='LOADING POSTS' />
             {posts.length > 0 &&
                 <div>
                     <ul className="posts_list_contaner">
@@ -39,4 +35,3 @@ export const Posts = () => {
         </div>
     )
 }
-
