@@ -1,7 +1,7 @@
 #btn_loading_users {
     margin-bottom: 10px;
 }
-#btn_hide_users{
+#btn_hide_users {
     margin-bottom: 20px;
 }
 .users_list_contaner {
@@ -29,4 +29,20 @@
 .card_footer_user {
     padding: 5px;
     border-top: 1px solid rgb(219, 216, 216);
+}
+@media (max-width: 740px) {
+    .users_list_contaner {
+        display: flex;
+        flex-flow: row wrap;
+        overflow-y: scroll;
+        height: 500px;
+        padding: 0 0 0 0;
+    }
+    .card_contaner_user {
+        padding: 5px;
+        margin: 5px;
+        width: 400px;
+        height: 100px;
+        background-color: rgba($color: #ffffff, $alpha: 0.5);
+    }
 }

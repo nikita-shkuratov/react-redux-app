@@ -23,7 +23,7 @@ export function fetchUsers() {
         try {
             dispatch(showLoader())
 
-            const res = await fetch('https://react-redux-app-63749.firebaseio.com/users.json')
+            const res = await fetch('https://react-redux-app-d9cd8.firebaseio.com/users.json')
             const toJson = await res.json()
             const getUsers = Object.keys(toJson).map(key => {
                 return toJson[key]
@@ -133,7 +133,7 @@ export function hideLog() {
 export function fetchRegUsers() {
     return async dispatch => {
         try {
-            const responce = await fetch('https://react-redux-app-63749.firebaseio.com/users.json')
+            const responce = await fetch('https://react-redux-app-d9cd8.firebaseio.com/users.json')
             const json = await responce.json()
             const getUsers = Object.keys(json).map(key => {
                 return json[key]
@@ -148,7 +148,7 @@ export function fetchRegUsers() {
 export function regNewUser(dataUser) {
     return async dispatch => {
         try {
-            const responce = await fetch('https://react-redux-app-63749.firebaseio.com/users.json', {
+            const responce = await fetch('https://react-redux-app-d9cd8.firebaseio.com/users.json', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

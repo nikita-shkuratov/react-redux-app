@@ -19,7 +19,7 @@ export const Home = () => {
                 After authorization, you will have access to several pages with the data that we receive when working with api.
                   You can register or log in as a guest.To enter as a guest enter:<br /><br />
                     <strong>login</strong>:guest <br />
-                    <strong>password</strong>:guest</p>
+                    <strong>password</strong>:1111</p>
                 <hr className="my-4" />
                 <p>To enter on your behalf please register.</p>
                 <button disabled={authorization} onClick={() => dispatch(showReg())}
